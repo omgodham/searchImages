@@ -13,7 +13,7 @@ function App() {
 
   useEffect(() => {
     // console.log(type);
-    dispatch(fetchData({page:4, type:type}))
+    dispatch(fetchData({page:4, type:type , category:"art"}))
   },[type]);
 
   // const [type , setType] = useState("images");
