@@ -1,20 +1,23 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Image.css";
-export default function Image({ item, type }) {
+import { useDispatch, useSelector } from 'react-redux';
+export default function Image({ item }) {
   const [isHover, setIsHover] = useState(false);
-
-  console.log(isHover);
+  const {type} = useSelector(state => state);
+  // console.log(item);
   useEffect(() => {
-    const video = document.getElementById(`${item.id}`);
+    if(type==="videos"){
+      const video = document.getElementById(`${item.id}`);
     
-    video.addEventListener("mouseover" , () => {
-        video.play();
-    })
-
-    video.addEventListener("mouseout" , () => {
-        video.pause();
-    })
-   
+      video.addEventListener("mouseover" , () => {
+          video.play();
+      })
+  
+      video.addEventListener("mouseout" , () => {
+          video.pause();
+      })
+    }
+// console.log(type);
   },[])
 
   return (
@@ -24,7 +27,7 @@ export default function Image({ item, type }) {
       onMouseOver={() => setIsHover(true)}
       onMouseOut={() => setIsHover(false)}
     >
-      {type === "images" ? (
+      {type == "images" ? (
         <img
           src={item.largeImageURL}
           style={{ width: 400 }}
@@ -41,16 +44,16 @@ export default function Image({ item, type }) {
         } w-100`}
       >
         <div className="tags text-white">
-          {item.tags.split(",").map((tag) => {
-            return <span>{tag}</span>;
+          {item.tags.split(",").map((tag,i) => {
+            return <span key={i}>{tag}</span>;
           })}
         </div>
         <div className="likes d-flex text-white">
           <span>
-            <i class="bi bi-hand-thumbs-up"></i> {item.likes + " "}
+            <i className="bi bi-hand-thumbs-up"></i> {item.likes + " "}
           </span>
           <span>
-            <i class="bi bi-chat"></i> {item.comments}
+            <i className="bi bi-chat"></i> {item.comments}
           </span>
         </div>
       </div>

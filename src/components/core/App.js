@@ -2,17 +2,27 @@
 import './App.css';
 import Navbar from './Navbar';
 import Images from '../Home/Images';
-import { useState } from 'react';
-function App() {
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchData } from '../../actions/fetchData';
 
-  const [type , setType] = useState("videos");
+function App() {
+  const {type} = useSelector(state => state);
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    // console.log(type);
+    dispatch(fetchData(4 , type))
+  },[type])
+
+  // const [type , setType] = useState("images");
 
   return (
     <div className="App">
       {/* navbar */}
       <Navbar />
       {/* Images */}
-      <Images type={type} setType={setType}/>
+      <Images />
 
       {/* videos */}
 
