@@ -5,3 +5,19 @@ export const changeType = (data) => {
         payload:data
     }
 }
+
+export const changeQuery = (data) => {
+    return {
+        type:'CHANGE_QUERY',
+        payload:data
+    }
+}
+
+
+export const changeCategory = (data) => {
+    return {
+        type:'CHANGE_CATEGORY',
+        payload:data
+    }
+}
+

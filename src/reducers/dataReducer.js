@@ -1,7 +1,9 @@
 const initialState ={
     data : [] ,
     type:"images",
-    total:0
+    total:0,
+    query:"",
+    category:""
 }
 
 export const dataReducer = (state = initialState , action) => {
@@ -9,6 +11,14 @@ export const dataReducer = (state = initialState , action) => {
         case 'CHANGE_TYPE' : return {
             ...state,
             type : action.payload
+        }
+        case 'CHANGE_QUERY' : return {
+            ...state,
+            query : action.payload
+        }
+        case 'CHANGE_CATEGORY' : return {
+            ...state,
+            category : action.payload
         }
         case 'ADD_DATA' : return {
             ...state,

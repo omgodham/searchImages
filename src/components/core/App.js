@@ -7,13 +7,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchData } from '../../actions/fetchData';
 
 function App() {
-  const {type} = useSelector(state => state);
+  const {type,data} = useSelector(state => state);
 
   const dispatch = useDispatch();
+
   useEffect(() => {
     // console.log(type);
-    dispatch(fetchData(4 , type))
-  },[type])
+    dispatch(fetchData({page:3, type:type}))
+  },[type]);
 
   // const [type , setType] = useState("images");
 
