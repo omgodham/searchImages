@@ -17,7 +17,7 @@ function Images() {
 
     const [values , setValues] = useState({
       newData : [],
-      page:3
+      page:4
     });
     
     const {newData,newTotal,page} = values;
@@ -48,7 +48,7 @@ function Images() {
   return (
     <div className='page'>
       <InfiniteScroll
-        pageStart={3}
+        pageStart={page}
         loadMore={getAllData}
         hasMore={total > newData.length}
         className="d-flex justify-content-center"
