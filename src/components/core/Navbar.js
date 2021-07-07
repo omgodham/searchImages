@@ -12,7 +12,7 @@ function Navbar({}) {
 const handleClick = (method) => {
   if(method !== type){
     dispatch(changeType(method));
-    dispatch(fetchData(5 , method));
+    // dispatch(fetchData(5 , method));
   }
 }
 const handleSubmit = (e) => {

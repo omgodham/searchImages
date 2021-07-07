@@ -12,23 +12,29 @@ import { fetchData } from "../../actions/fetchData";
 function Images() {
   let {type , data ,total ,query,category} = useSelector(state => state);
   data = data.hits ? data.hits : [];
-  console.log(data , type);
+  // console.log(data);
+ 
+  const updatedData = data.filter(item => {
+    return !(item.tags.includes("nude") || item.tags.includes("erotica") || item.tags.includes("girl"));
+  });
+  console.log(updatedData);
+
   const dispatch = useDispatch();
 
     const [values , setValues] = useState({
       newData : [],
-      page:4
+      page:1
     });
     
     const {newData,newTotal,page} = values;
 
     useEffect(() => {
       setValues({newData:[]}); 
-    },[query,category])
+    },[])
   
-    useEffect(() => {
-      data && setValues({ newData:newData.concat(data) , page: page + 1});
-    },[data])
+    // useEffect(() => {
+    
+    // },[])
 
    
     //  console.log(data);
@@ -39,7 +45,7 @@ function Images() {
            
             // const img = newData.concat(data)
             // // console.log(result);
-           
+            updatedData && setValues({ newData:newData.concat(updatedData) , page: page + 1});
         } catch (error) {
             console.log(error)
         }
@@ -60,7 +66,7 @@ function Images() {
           disableImagesLoaded={false}
           updateOnEachImageLoad={false}
         >
-          {!newData.length ? data?.map((item, i) => {
+          {!newData.length ? updatedData?.map((item, i) => {
             return (
               <Image item={item} key={i}/>
             ) 
