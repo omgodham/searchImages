@@ -1,6 +1,13 @@
 import React from 'react'
 
-function Navbar() {
+function Navbar({type , setType}) {
+
+  const handleClick = (category) => {
+    if(category !== type)
+    setType(category); 
+  }
+
+
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -12,10 +19,10 @@ function Navbar() {
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         <li className="nav-item">
-          <a className="nav-link" aria-current="page" href="#">Photos</a>
+          <a className="nav-link" aria-current="page" href="#" onClick={() => handleClick("images")}>Photos</a>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#">Videos</a>
+          <a className="nav-link" href="#" onClick={() => handleClick("videos")}>Videos</a>
         </li>
         <li className="nav-item dropdown">
           <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

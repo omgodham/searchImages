@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       {/* navbar */}
-      <Navbar />
+      <Navbar type={type} setType={setType}/>
       {/* Images */}
       <Images type={type} setType={setType}/>
 

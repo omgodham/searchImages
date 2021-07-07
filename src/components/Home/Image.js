@@ -3,18 +3,19 @@ import "./Image.css";
 export default function Image({ item, type }) {
   const [isHover, setIsHover] = useState(false);
 
-  console.log(isHover);
+  
   useEffect(() => {
-    const video = document.getElementById(`${item.id}`);
+    if(type==="videos"){
+      const video = document.getElementById(`${item.id}`);
     
-    video.addEventListener("mouseover" , () => {
-        video.play();
-    })
-
-    video.addEventListener("mouseout" , () => {
-        video.pause();
-    })
-   
+      video.addEventListener("mouseover" , () => {
+          video.play();
+      });
+  
+      video.addEventListener("mouseout" , () => {
+          video.pause();
+      });
+    }
   },[])
 
   return (
@@ -41,16 +42,16 @@ export default function Image({ item, type }) {
         } w-100`}
       >
         <div className="tags text-white">
-          {item.tags.split(",").map((tag) => {
-            return <span>{tag}</span>;
+          {item.tags.split(",").map((tag,i) => {
+            return <span key={i}>{tag}</span>;
           })}
         </div>
         <div className="likes d-flex text-white">
           <span>
-            <i class="bi bi-hand-thumbs-up"></i> {item.likes + " "}
+            <i className="bi bi-hand-thumbs-up"></i> {item.likes + " "}
           </span>
           <span>
-            <i class="bi bi-chat"></i> {item.comments}
+            <i className="bi bi-chat"></i> {item.comments}
           </span>
         </div>
       </div>
