@@ -1,8 +1,8 @@
-import axios from "axios"
-//https://pixabay.com/api/videos/?key=9646366-0a5eaee912903b23f7a88c12d
+import axios from "axios";
 
-export const getData = async (page,type) => {
-   return await axios.get(`https://pixabay.com/api/${type == 'videos' ? "videos" : ""}?key=${process.env.REACT_APP_API_KEY}&page=${page}`)
+export const getData = async ({page,type,query,filter}) => {
+   console.log(query);
+   return await axios.get(`https://pixabay.com/api/${type == 'videos' ? "videos" : ""}?key=${process.env.REACT_APP_API_KEY}&page=${page}${query ? `&q=${query}` : ''}${filter ? `&category=${filter}` : ''}`)
             .then(response => response.data) 
             .catch(err => console.log(err))
 }

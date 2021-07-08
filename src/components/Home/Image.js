@@ -21,7 +21,7 @@ export default function Image({ item, type }) {
   return (
     <div
       role="button"
-      className={`my-3 cursor-pointer ${isHover && type==="images" ? "image-block" : ""}`}
+      className={`${type === "videos" ? 'my-3' : 'my-2'} cursor-pointer ${isHover && type==="images" ? "image-block" : ""}`}
       onMouseOver={() => setIsHover(true)}
       onMouseOut={() => setIsHover(false)}
     >
@@ -29,7 +29,7 @@ export default function Image({ item, type }) {
         <img
           src={item.largeImageURL}
           style={{ width: 400 }}
-          className="shadow image"
+          className="shadow-sm image"
         />
       ) : (
         <video width="400" id={item.id} controls={false} muted loop className="image">

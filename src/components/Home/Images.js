@@ -7,31 +7,31 @@ import {getData} from './helper';
 
 import Image from './Image';
 
-function Images({type}) {
+function Images({type,query,filter}) {
     const [values , setValues] = useState({
         total:0,
         data:[],
-        page:1
+        page:1,
+     
     })
-  
+  // console.log(query);
     const {total ,data ,page} = values;
 // console.log(data)
 if(data.length) {
   if((data[0].type === "film" && type === "images") || (data[0].type === "photo" && type === "videos")){
-    setValues({...values , data:[] , page : 1});
+    setValues({...values , data:[] , page : 1 ,query:""});
   }
 }
 
-    
 
      useEffect(() => {
-      // console.log("useEffect");
+      setValues({...values , data:[]});
       getAllData();
-     },[type]);
+     },[type , query ,filter]);
  
      const getAllData = async () => {
         try {
-            const result = await getData(page , type);
+            const result = await getData({page , type , query , filter});
             // console.log(result);
             result && setValues({total:result.total , data:data.concat(result.hits) , page:page+1});
         } catch (error) {
