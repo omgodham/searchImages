@@ -28,11 +28,11 @@ export default function Image({ item, type }) {
       {type === "images" ? (
         <img
           src={item.largeImageURL}
-          style={{ width: 400 }}
-          className="shadow-sm image"
+          style={{ width: 420 }}
+          className="image"
         />
       ) : (
-        <video width="400" id={item.id} controls={false} muted loop className="image">
+        <video width="420" id={item.id} controls={false} muted loop className="image">
           <source src={item.videos["tiny"].url} type="video/mp4" />
         </video>
       )}

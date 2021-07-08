@@ -1,0 +1,30 @@
+body{
+    font-family: 'Open Sans', sans-serif;
+    background-color: #ffbfb3;
+}
+.navbar-area{
+    /* background-color: #6495ED; */
+    background: rgb(63,94,251);
+    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,0.5382528011204482) 100%);
+}
+.navbar-area a{
+    /* color: #40E0D0; */
+    color: white;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.navbar-area a:hover{
+    /* color: #40E0D0; */
+    color: #DFFF00;
+}
+
+.navbar-brand{
+    font-family: 'Yellowtail', cursive;
+    font-size: 30px;
+    color:#DFFF00 !important;
+}
+
+.image{
+    box-shadow:0px 0px 5px #272727;
+}

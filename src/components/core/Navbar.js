@@ -19,11 +19,11 @@ const [tempQuery , setTempQuery] = useState("");
    setQuery("");
   }
   
-
+//navbar-light bg-light
 
     return (
-        <div>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <div className="navbar-area">
+            <nav className="navbar navbar-expand-lg container">
   <div className="container-fluid">
     <a className="navbar-brand" href="#">SearchImages</a>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,7 +53,7 @@ const [tempQuery , setTempQuery] = useState("");
       </ul>
       <form className="d-flex" onSubmit={handleSubmit}>
         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" value={tempQuery} onChange = {(e) => setTempQuery(e.target.value)}/>
-        <button className="btn btn-outline-success" type="submit">Search</button>
+        <button className="btn btn-outline-light" type="submit">Search</button>
       </form>
     </div>
   </div>
